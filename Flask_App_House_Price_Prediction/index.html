@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f8f8;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">House Price Prediction</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>House Price Prediction</h1>
+            <form method="POST" action="{{ url_for('predict') }}">
+                <div class="form-group">
+                    <label for="bedrooms">Bedrooms:</label>
+                    <input type="text" class="form-control" id="bedrooms" placeholder="Enter number of bedrooms" name="bedrooms">
+                </div>
+                <div class="form-group">
+                    <label for="bathrooms">Bathrooms:</label>
+                    <input type="text" class="form-control" id="bathrooms" placeholder="Enter number of bathrooms" name="bathrooms">
+                </div>
+                <div class="form-group">
+                    <label for="floors">Floors:</label>
+                    <input type="text" class="form-control" id="floors" placeholder="Enter number of floors" name="floors">
+                </div>
+                <div class="form-group">
+                    <label for="yr_built">Year Built:</label>
+                    <input type="text" class="form-control" id="yr_built" placeholder="Enter year built" name="yr_built">
+                </div>
+                <button type="submit" class="btn btn-default">Predict</button>
+            </form>
+            {% if prediction_text %}
+            <br>
+            <h4>{{ prediction_text }}</h4>
+            {% endif %}
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">House Price Prediction &copy; 2023
