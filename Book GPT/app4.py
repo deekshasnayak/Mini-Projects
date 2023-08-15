@@ -9,7 +9,7 @@ from langchain.memory import ConversationBufferMemory
 from langchain.utilities import WikipediaAPIWrapper
 
 # Set your OpenAI API key
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = YOUR_API_KEY
 
 # Set the Streamlit app title and header
 st.set_page_config(page_title="Synopsis Generator", page_icon="📚🎥")
