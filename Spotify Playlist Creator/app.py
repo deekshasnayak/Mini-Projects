@@ -11,7 +11,7 @@ def index():
     <head>
         <style>
             body {
-                background-image: url('"D:\Personal_Project\game\image.jpg"'); /* Replace with your image URL */
+                background-image: url('image.jpg'); /* Replace with your image URL */
                 background-size: cover;
                 display: flex;
                 justify-content: center;
@@ -61,8 +61,8 @@ def create_playlist():
     artist_name = request.form.get('artist_name')
     
     sp_oauth = SpotifyOAuth(
-        client_id='02e1f0ea5b3945ec8dd3ade27a7c838c',
-        client_secret='ca325c1f7bef43699e68730f6964f0f8',
+        client_id='your id',
+        client_secret='your client secret',
         redirect_uri='http://localhost:5000/callback',
         scope='playlist-modify-public'
     )
@@ -73,8 +73,8 @@ def create_playlist():
 @app.route('/callback')
 def callback():
     sp_oauth = SpotifyOAuth(
-        client_id='02e1f0ea5b3945ec8dd3ade27a7c838c',
-        client_secret='ca325c1f7bef43699e68730f6964f0f8',
+        client_id='your id',
+        client_secret='your client secret',
         redirect_uri='http://localhost:5000/callback'
     )
     token_info = sp_oauth.get_access_token(request.args['code'])
